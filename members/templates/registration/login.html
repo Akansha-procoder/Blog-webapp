@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+     Login  {% endblock %}
+
+{% block content %}
+
+<h1><div class="p-3 mb-2 bg-secondary text-white">LOGIN...</div></h1><br/>
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p}}
+	<h6>(NOT HAVE AN ACCOUNT.GO TO <a href="{% url 'register'  %}">SIGNUP </a>FIRST)</h6><br/><br/>
+	<button class="btn btn-secondary">login</button>>
+
+<style>
+body  {
+  background-image: url("https://images.homedepot-static.com/productImages/53b84a3e-7e5b-4d11-9824-2c79922caf7d/svn/graham-brown-wallpaper-rolls-51-058-64_1000.jpg");
+  background-color: #cccccc;
+}
+</style>
+
+
+{% endblock %}

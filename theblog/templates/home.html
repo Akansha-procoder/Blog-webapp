@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+{% if user.is_authenticated %}  
+<h1 ><div class="p-3 mb-2 bg-info text-white"><span class="align-middle">POSTS</span></div></h1><br/>
+<ul>
+{% for x in object_list %}
+
+<li class="text-dark"><a href="{% url 'article_details' x.pk %}"><h4>{{x.title}}</h4></a><h6>By:-{{x.author.first_name}}
+	{{x.author.last_name}} <br/> Joining Date:{{x.author.date_joined}} (Note: You are 5.5 hours ahead of server time.)<br/>Last Seen:{{x.author.last_login}} (Note: You are 5.5 hours ahead of server time.)<br/></h6>
+	<br/><br/>
+
+</li>
+<style>
+body  {
+  background-image: url("https://www.poochedpaws.co.uk/wp-content/uploads/2018/04/pink-master-bg-larger.gif");
+  background-color: #cccccc;
+}
+</style>
+{% endfor %}
+</ul>
+{% else %}
+<h1 ><div class="p-3 mb-2 bg-info text-white"><marquee>HOWDY BLOGGERS...WELCOME TO YOUR AWSOME BLOG WEBAPP</marquee></div></h1><br/>
+<h3><div class="p-3 mb-2 bg-secondary text-white">PUBLISH YOUR PASSION, YOUR WAY.<Br/>
+Create a unique and beautiful blog. It’s easy and free.</div></h3><br/>
+<h4><a class="text-light bg-dark">Already Have An Account</a></h4><a class="btn btn-success" href="{% url 'login'%}" role="button">Login</a><br/><br/><br/><br/>
+<h4><a class="text-light bg-dark">New User</a></h4><a class="btn btn-success" href="{% url 'register'%}" role="button">Sign Up</a>
+
+<style>
+body  {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRTAJaJ5dKcc76M4IKiR8RxvKzJYIpx9U3mJA&usqp=CAU");
+  background-color: #cccccc;
+}
+</style>
+{% endif %}
+{% endblock %}
